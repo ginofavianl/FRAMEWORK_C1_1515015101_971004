@@ -11,7 +11,36 @@
 |
 */
 
+Route::get('pengguna','PenggunaController@awal');
+Route::get('pengguna/tambah','PenggunaController@tambah');
 
+Route::get('dosen','DosenController@awal');
+Route::get('dosen/tambah','DosenController@tambah');
+
+Route::get('dosen_matakuliah','Dosen_MatakuliahController@awal');
+Route::get('dosen_matakuliah/tambah','Dosen_MatakuliahController@tambah');
+
+Route::get('jadwal_matakuliah','Jadwal_MatakuliahController@awal');
+Route::get('jadwal_matakuliah/tambah','Jadwal_MatakuliahController@tambah');
+
+Route::get('mahasiswa','MahasiswaController@awal');
+Route::get('mahasiswa/tambah','MahasiswaController@tambah');
+
+Route::get('matakuliah','MatakuliahController@awal');
+Route::get('matakuliah/tambah','MatakuliahController@tambah');
+
+Route::get('ruangan','RuanganController@awal');
+Route::get('ruangan/tambah','RuanganController@tambah');
+
+Route::get('pengguna/add',function(){
+		$pengguna = new App\pengguna();
+		$pengguna->username = 'yo';
+		$pengguna->password = 'hihi';
+		$pengguna->save();
+		return "Data Dengan Username {$pengguna->username} telah  disimpan";
+	});
+
+/*
 Route::get('/', 'HomeController@index');
 
 Route::get('pengguna/{pengguna?}', function ($pengguna="Gino") {
@@ -28,3 +57,4 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('anggota','AnggotaController');
 Route::resource('anggota.hobi','HobiController');
+*/
