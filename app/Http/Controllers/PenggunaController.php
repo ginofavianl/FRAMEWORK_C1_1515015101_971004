@@ -19,7 +19,7 @@ public function tambah()
 	{
 		return view('pengguna.tambah');
 	}
-public function simpan(Requests $input)
+public function simpan(Request $input)
 	{
 		$pengguna = new Pengguna();
 		$pengguna->username = 'gino';
@@ -30,12 +30,12 @@ public function simpan(Requests $input)
 public function edit($id)
 	{
 		$pengguna = Pengguna::find($id);
-		return view('pengguna.edit')->with(array('pengguna'=>pengguna));
+		return view('pengguna.edit')->with(array('pengguna'=>$pengguna));
 	}
 public function lihat($id)
 	{
 		$pengguna = Pengguna::find($id);
-		return view('pengguna.lihat')->with(array('pengguna'=>pengguna));
+		return view('pengguna.lihat')->with(array('pengguna'=>$pengguna));
 	}
 public function update($id, Request $input)
 	{
@@ -49,6 +49,6 @@ public function hapus($id)
 	{
 		$pengguna = Pengguna::find($id);
 		$informasi = $pengguna->delete() ? 'Berhasil Hapus Data' : 'Gagal Hapus Data';
-		return redirect('pengguna')->with(['infomarsi'=>informasi]);
+		return redirect('pengguna')->with(['infomarsi'=>$informasi]);
 	}
 }
