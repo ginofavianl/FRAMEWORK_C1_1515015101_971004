@@ -45,7 +45,7 @@ Route::get('/', function () {
 });
 
 Route::get('/hello-world', function () {
-    return 'Doni Huhahahahahaha';
+    return 'Gino Favian Leonardo';
 });
 
 Route::get('/coba/{var}', function($variabel){
@@ -165,6 +165,21 @@ Route::post('jadwal_matakuliah/simpan', 'Jadwal_matakuliahController@simpan');
 Route::get('jadwal_matakuliah/edit/{jadwal_matakuliah}', 'Jadwal_matakuliahController@edit');
 Route::post('jadwal_matakuliah/edit/{jadwal_matakuliah}', 'Jadwal_matakuliahController@update');
 Route::get('jadwal_matakuliah/hapus/{jadwal_matakuliah}', 'Jadwal_matakuliahController@hapus');
+
+
+Route::get('relasi/mahasiswa', function() {
+    $mahasiswa = App\Pengguna::find(3)->mahasiswa;
+     return "<li>$mahasiswa";
+});
+Route::get('relasi/pengguna', function() {
+    $pengguna = App\Mahasiswa::find(5)->pengguna;
+    return "<li>$pengguna";
+});
+Route::get('relasi/dosen', function() {
+    $pengguna = App\Pengguna::find(1)->dosen;
+    return "<li>$pengguna";
+});
+
 
 /*
 Route::get('/', 'HomeController@index');
